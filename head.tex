@@ -1,0 +1,113 @@
+\usepackage[top=2cm, bottom=1.5cm, left=2cm, right=2cm]{geometry}
+
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+\usepackage{hyperref}
+
+% begin a new page for each section (first level header),
+% we need to combine this with `-V subparagraph` when invoking pandc
+% \usepackage{titlesec}
+% \newcommand{\sectionbreak}{\clearpage}
+
+% change background color for inline code in markdown files.
+% The following code does not work well for long text, because the text will exceed the page boundary.
+\definecolor{bgcolor}{HTML}{DADADA}
+\let\oldtexttt\texttt
+
+\renewcommand{\texttt}[1]{
+  \colorbox{bgcolor}{\oldtexttt{#1}}
+}
+
+
+% start a new page after toc, we need to save the old command before defining
+% new one to avoid recursive command calls,
+% see https://tex.stackexchange.com/questions/47351/can-i-redefine-a-command-to-contain-itself
+\let\oldtoc\tableofcontents
+\renewcommand{\tableofcontents}{\oldtoc\newpage}
+
+
+\usepackage{float}
+\let\origfigure\figure
+\let\endorigfigure\endfigure
+\renewenvironment{figure}[1][2] {
+    \expandafter\origfigure\expandafter[H]
+} {
+    \endorigfigure
+}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+    backgroundcolor=\color[RGB]{240,240,240},
+    basicstyle=\footnotesize\ttfamily\linespread{1.1},  % the size of the fonts that are used for the code; posssible values are (\ttfamily, \footnotesize, etc.)
+    breaklines=true,                % sets automatic line breaking
+    breakatwhitespace=true,         % sets if automatic breaks should only happen at whitespace
+    breakautoindent=true,
+    breaklines=true,
+    captionpos=b,
+    commentstyle=\color[rgb]{0.56,0.35,0.01}\itshape,
+    escapeinside={\%*}{*)},
+    frame=single,	                 % adds a frame around the code
+    framesep=8pt,
+    keywordstyle=\color[rgb]{0.13,0.29,0.53}\bfseries,
+    linewidth=\textwidth,
+    numbers=none,                    % where to put the line-numbers; possible values are (none, left, right)
+    numbersep=5pt,                   % how far the line-numbers are from the code
+    numberstyle=\tiny\color{gray},   % the style that is used for the line-numbers
+    rulecolor=\color[RGB]{220,220,220}, % the frame color; we prefer slightly-darker than the background color
+    showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+    showstringspaces=false,          % underline spaces within strings only
+    showtabs=false,                  % show tabs within strings adding particular underscores
+    stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+    stringstyle=\color[rgb]{0.31,0.60,0.02},
+    tabsize=4,                       % sets default tabsize to 2 spaces
+    xleftmargin=8pt,                 % use the same value as framesep
+    xrightmargin=8pt,                % use the same value as framesep
+}
+
+% block quote
+
+\usepackage{tcolorbox}
+\newtcolorbox{myquote}{colback=red!5!white, colframe=red!75!black}
+\renewenvironment{quote}{\begin{myquote}}{\end{myquote}}
+
+
+% bullets
+
+\usepackage{enumitem}
+\usepackage{amsfonts}
+
+% level one
+\setlist[itemize,1]{label=$\bullet$}
+% level two
+\setlist[itemize,2]{label=$\circ$}
+% level three
+\setlist[itemize,3]{label=$\circ$}
+
+% hypen
+
+\exhyphenpenalty=10000
+\hyphenpenalty=10000
+
+\raggedright
+
+
+
+% Section style
+
+\usepackage{silence}
+\WarningFilter[temp]{latex}{Command \underbar  has changed.}
+\WarningFilter[temp]{latex}{Command \underline  has changed.} 
+
+\usepackage{sectsty}
+\DeactivateWarningFilters[temp]
+
+\sectionfont{\clearpage}
+\sectionfont{\LARGE\clearpage}
+\subsectionfont{\clearpage}
+\subsectionfont{\LARGE\clearpage}
+
+% Set space
+
+\usepackage{setspace}
+\setstretch{1.2}
