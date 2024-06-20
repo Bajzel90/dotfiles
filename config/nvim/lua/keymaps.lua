@@ -34,29 +34,29 @@ map("n", "<leader>bd", "<cmd>bd<cr>", { desc = "Close buffer" })
 
 -- toggles
 map("n", "<leader>tn", function()
-  vim.o.relativenumber = vim.o.relativenumber == false and true or false
+	vim.o.relativenumber = vim.o.relativenumber == false and true or false
 end, { desc = "Toggle relative number" })
 map("n", "<leader>th", function()
-  vim.print("Toggling hidden chars")
-  vim.o.list = vim.o.list == false and true or false
+	vim.print("Toggling hidden chars")
+	vim.o.list = vim.o.list == false and true or false
 end, { desc = "Toggle hidden chars" })
 map("n", "<leader>tl", function()
-  vim.print("Toggling signcolumn")
-  vim.o.signcolumn = vim.o.signcolumn == "yes" and "no" or "yes"
+	vim.print("Toggling signcolumn")
+	vim.o.signcolumn = vim.o.signcolumn == "yes" and "no" or "yes"
 end, { desc = "Toggle signcolumn" })
 map("n", "<leader>tv", function()
-  vim.print("Toggling virtualedit")
-  vim.o.virtualedit = vim.o.virtualedit == "all" and "block" or "all"
+	vim.print("Toggling virtualedit")
+	vim.o.virtualedit = vim.o.virtualedit == "all" and "block" or "all"
 end, { desc = "Toggle virtualedit" })
 map("n", "<leader>ts", function()
-  vim.print("Toggling spell")
-  vim.o.spell = vim.o.spell == false and true or false
+	vim.print("Toggling spell")
+	vim.o.spell = vim.o.spell == false and true or false
 end, { desc = "Toggle spell" })
 map("n", "<leader>tw", function()
-  vim.print("Toggling wrap")
-  vim.o.wrap = vim.o.wrap == false and true or false
+	vim.print("Toggling wrap")
+	vim.o.wrap = vim.o.wrap == false and true or false
 end, { desc = "Toggle wrap" })
 map("n", "<leader>tc", function()
-  vim.print("Toggling cursorline")
-  vim.o.cursorline = vim.o.cursorline == false and true or false
+	vim.print("Toggling cursorline")
+	vim.o.cursorline = vim.o.cursorline == false and true or false
 end, { desc = "Toggle cursorline" })
