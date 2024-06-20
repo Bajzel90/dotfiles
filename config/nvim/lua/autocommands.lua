@@ -26,3 +26,12 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.opt_local.conceallevel = 0
 	end,
 })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*.sql",
+	callback = function()
+		print("Formatowanie pliku SQL...")
+		vim.cmd("%!sqlformat")
+	end,
+	desc = "Automatyczne formatowanie plików SQL przed zapisem",
+})

@@ -19,19 +19,19 @@ return {
 			python = { "ruff" },
 			markdown = { "markdownlint" },
 			rust = { "rustfmt" },
-			sql = { "sql_formatter" },
 			cs = { "csharpier" },
 			typescript = { "prietter" },
 			json = { "prietter" },
+			xml = { "xmlformatter" },
 		},
 		-- Set up format-on-save
 		format_on_save = { timeout_ms = 500, lsp_fallback = true },
 		-- Customize formatters
-		formatters = {
-			sql_formatter = {
-				prepend_args = { "-l", "transactsql" },
-			},
-		},
+		-- formatters = {
+		-- 	sql_formatter = {
+		-- 		prepend_args = { "-l", "tsql" },
+		-- 	},
+		-- },
 	},
 	init = function()
 		-- If you want the formatexpr, here is the place to set it
