@@ -31,7 +31,16 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*.sql",
 	callback = function()
 		print("Formatowanie pliku SQL...")
-		vim.cmd("%!sqlformat")
+		vim.cmd("%!sqlformat --maxLineWidth 88 --indent '  '")
 	end,
 	desc = "Automatyczne formatowanie plików SQL przed zapisem",
+})
+
+local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*.go",
+	callback = function()
+		require("go.format").goimports()
+	end,
+	group = format_sync_grp,
 })

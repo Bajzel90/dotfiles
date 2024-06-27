@@ -5,7 +5,6 @@ vim.gsharpenup_map_prefix = ","
 
 require("options")
 require("keymaps")
-require("autocommands")
 require("commands")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -22,3 +21,4 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
+require("autocommands")
