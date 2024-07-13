@@ -10,7 +10,8 @@ return {
 		"3rd/image.nvim",
 		dependencies = { "luarocks.nvim" },
 		config = function()
-			require("image").setup({
+			local image = require("image")
+			image.setup({
 				integrations = {
 					markdown = {
 						enabled = false,
@@ -24,10 +25,19 @@ return {
 						end,
 
 						only_render_image_at_cursor = true,
+						clear_in_insert_mode = false,
 					},
 				},
 				max_height_window_percentage = 80,
 			})
+
+			vim.keymap.set("n", "<leader>ti", function()
+				if image.is_visible() then
+					image.disable()
+				else
+					image.enable()
+				end
+			end, { desc = "Toggle image" })
 		end,
 	},
 }
