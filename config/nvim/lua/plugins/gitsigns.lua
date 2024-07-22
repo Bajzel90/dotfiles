@@ -47,6 +47,16 @@ local options = {
 		map("n", "<leader>hr", gs.reset_hunk, opts("Reset Hunk"))
 		map("n", "<leader>hp", gs.preview_hunk, opts("Preview Hunk"))
 		map("n", "<leader>hb", gs.blame_line, opts("Blame Line"))
+		map("n", "<leader>hs", gs.stage_hunk, opts("Hunk Stage"))
+		map("n", "<leader>hS", gs.stage_buffer, opts("Hunk Stage Buffer"))
+		map("n", "<leader>hu", gs.undo_stage_hunk, opts("Hunk Unstage"))
+		map("n", "<leader>hR", gs.reset_buffer, opts("Hunk Reset Buffer"))
+		map("n", "<leader>tb", gs.toggle_current_line_blame, opts("Toogle Blame"))
+		map("n", "<leader>hd", gs.diffthis, opts("Hunk Diff"))
+		map("n", "<leader>hD", function()
+			gs.diffthis("~")
+		end, opts("Hunk Diff ~"))
+		map("n", "<leader>td", gs.toggle_deleted, opts("Toogle Deleted"))
 	end,
 }
 
