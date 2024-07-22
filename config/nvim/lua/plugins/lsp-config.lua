@@ -112,6 +112,7 @@ local lsp_servers = function()
       },
     },
   })
+  lspconfig.bashls.setup({ capabilities = capabilities })
 end
 
 local lsp_mapping = function()
