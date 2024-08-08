@@ -14,19 +14,21 @@ map("v", "<leader>mc", "<Cmd>MDTaskToggle<CR>", { desc = "Tasks" })
 map("n", "<leader>mm", "<Cmd>MDToc<CR>", { desc = "Markdown ToC" })
 
 -- diagnostics
-
 map("n", "<space>e", vim.diagnostic.open_float)
 map("n", "[d", vim.diagnostic.goto_prev, { desc = "GoTo Next Diagnostic" })
 map("n", "]d", vim.diagnostic.goto_next, { desc = "GoTo Prev Diagnostic" })
 map("n", "<space>q", vim.diagnostic.setloclist)
 
 -- move items
-
 map("v", "J", ":m '>+1<CR>gv=gv")
 map("v", "K", ":m '<-2<CR>gv=gv")
 
--- Buffers
+map("n", "j", "gj")
+map("n", "k", "gk")
+map("n", "n", "nzz")
+map("n", "N", "Nzz")
 
+-- Buffers
 map("n", "<S-h>", "<Cmd>bp<CR>", { desc = "Buffer Previous" })
 map("n", "<S-l>", "<cmd>bn<CR>", { desc = "Buffer Next" })
 map("n", "<leader>bD", "<cmd>%bd|e#|bd#<cr>", { desc = "Close all but the current buffer" })
