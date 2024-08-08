@@ -41,7 +41,7 @@ install_tmux() {
 }
 
 install_neovim() {
-  sudo pacman -S neovim fd xclip nodejs npm ttf-hack-nerd fzf go python jq lazygit
+  sudo pacman -S neovim fd xclip nodejs npm ttf-hack-nerd fzf go python jq lazygit pandoc imagemagic luarocks ripgrep
   npm install --global poor-mans-t-sql-formatter-cli
 
   FILE=~/.config/nvim
@@ -55,15 +55,15 @@ install_neovim() {
 }
 
 install_addtional_packages() {
-  sudo pacman -S keepassxc spotify-launcher remmina github-cli timeshift transmission-gtk
+  sudo pacman -S keepassxc spotify-launcher remmina github-cli timeshift transmission-gtk cups
 
   yay -S forticlient-vpn
 }
 set_capslock_to_esc
-# download_dotfiles
-# install_yay_manager
-# install_bluetooth
-# install_zsh
-# install_tmux
-# install_neovim
-# install_addtional_packages
+download_dotfiles
+install_yay_manager
+install_bluetooth
+install_zsh
+install_tmux
+install_neovim
+install_addtional_packages
