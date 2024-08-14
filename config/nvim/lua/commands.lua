@@ -42,15 +42,16 @@ local function format_sql()
 	local end_line = vim.fn.getpos("'>")[2]
 
 	-- Get the selected text
-	local selected_text = vim.fn.getline(start_line, end_line)
+	-- local selected_text = vim.fn.getline(start_line, end_line)
 
 	-- Check if the first line of the selection is a Markdown SQL code block
-	if selected_text[1]:match("^%s*```sql") and selected_text[#selected_text]:match("^%s*```") then
-		-- Run the sqlformat command on the lines excluding the delimiters
-		vim.cmd(string.format("%d,%d!sqlformat --indent '  '", start_line + 1, end_line - 1))
-	else
-		print("Selection is not a SQL code block.")
-	end
+	-- if selected_text[1]:match("^%s*```sql") and selected_text[#selected_text]:match("^%s*```") then
+	-- Run the sqlformat command on the lines excluding the delimiters
+	-- vim.cmd(string.format("%d,%d!sqlformat --indent '  '", start_line + 1, end_line - 1))
+	vim.cmd(string.format("%d,%d!sqlformat --indent '  '", start_line, end_line))
+	-- else
+	-- 	print("Selection is not a SQL code block.")
+	-- end
 end
 
 -- Create the FormatSql command
