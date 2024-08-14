@@ -49,12 +49,27 @@ local lsp_servers = function()
 		{ capabilities = capabilities },
 	})
 
-	lspconfig.pyright.setup({
-		-- { capabilities = capabilities },
-		init_options = {
-			settings = {
-				python = {
-					analysis = { diagnosticMode = "off", typeCheckingMode = "off" },
+	-- lspconfig.pyright.setup({
+	-- 	-- { capabilities = capabilities },
+	-- 	init_options = {
+	-- 		settings = {
+	-- 			python = {
+	-- 				analysis = { diagnosticMode = "off", typeCheckingMode = "off" },
+	-- 			},
+	-- 		},
+	-- 	},
+
+	require("lspconfig").pyright.setup({
+		settings = {
+			pyright = {
+				-- Using Ruff's import organizer
+				disableOrganizeImports = true,
+			},
+			python = {
+				analysis = {
+					-- Ignore all files for analysis to exclusively use Ruff for linting
+					{ diagnosticMode = "off", typeCheckingMode = "off" },
+					ignore = { "*" },
 				},
 			},
 		},

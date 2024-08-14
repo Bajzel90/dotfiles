@@ -5,9 +5,9 @@ return {
 		name = "catppuccin",
 		priority = 1000,
 		config = function()
-			-- require("catppuccin").setup({
-			-- 	transparent_background = true,
-			-- })
+			require("catppuccin").setup({
+				transparent_background = true,
+			})
 			vim.cmd.colorscheme("catppuccin")
 		end,
 	},
@@ -16,8 +16,13 @@ return {
 		enabled = true,
 		lazy = false,
 		priority = 1000,
-		opts = {},
+		opts = {
+			transparent = true,
+		},
 		config = function()
+			require("tokyonight").setup({
+				transparent = true,
+			})
 			vim.cmd.colorscheme("tokyonight")
 		end,
 	},

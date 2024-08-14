@@ -9,6 +9,7 @@ return {
 	{
 		"3rd/image.nvim",
 		dependencies = { "luarocks.nvim" },
+		branch = "feat/toggle-rendering",
 		config = function()
 			local image = require("image")
 			image.setup({
@@ -32,12 +33,15 @@ return {
 			})
 
 			vim.keymap.set("n", "<leader>ti", function()
-				if image.is_visible() then
+				vim.print("is_enabled:" .. tostring(image.is_enabled()))
+				if image.is_enabled() then
+					vim.print("Images OFF")
 					image.disable()
 				else
+					vim.print("Images ON")
 					image.enable()
 				end
-			end, { desc = "Toggle image" })
+			end, {})
 		end,
 	},
 }
