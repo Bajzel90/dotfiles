@@ -62,3 +62,8 @@ map("n", "<leader>tc", function()
 	vim.print("Toggling cursorline")
 	vim.o.cursorline = vim.o.cursorline == false and true or false
 end, { desc = "Toggle cursorline" })
+map("n", "<leader>tm", function()
+	require("render-markdown").toggle()
+end)
+
+-- Map the function to <leader>ti
