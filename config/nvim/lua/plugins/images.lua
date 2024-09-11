@@ -26,7 +26,7 @@ return {
 						end,
 
 						only_render_image_at_cursor = true,
-						clear_in_insert_mode = false,
+						clear_in_insert_mode = true,
 					},
 				},
 				max_height_window_percentage = 80,
