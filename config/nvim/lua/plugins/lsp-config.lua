@@ -115,7 +115,7 @@ local lsp_servers = function()
 		capabilities = capabilities,
 		filetytpes = { "svelte", "html" },
 	})
-	lspconfig.tsserver.setup({
+	lspconfig.ts_ls.setup({
 		capabilities = capabilities,
 	})
 	lspconfig.ruff_lsp.setup({
