@@ -41,7 +41,7 @@ key-mapping.preset = 'qwerty'
 # See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
 # See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
 # Fallback value (if you omit the key): on-focused-monitor-changed = []
-on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+on-focused-monitor-changed = ['move-mouse window-lazy-center']
 
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
 # Possible values:
@@ -51,8 +51,8 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-inner.horizontal = 0
-inner.vertical =   0
+inner.horizontal = 10
+inner.vertical =   10
 outer.left =       0
 outer.bottom =     0
 outer.top =        0
@@ -119,8 +119,17 @@ alt-7 = 'workspace 7'
 alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
 alt-b = 'workspace B'
+alt-d = 'workspace D'
+alt-f = 'workspace F'
+alt-g = 'workspace G'
+alt-i = 'workspace I'
 alt-m = 'workspace M'
+alt-p = 'workspace P'
+alt-q = 'workspace Q'
+alt-r = 'workspace R'
 alt-t = 'workspace T'
+alt-v = 'workspace V'
+alt-w = 'workspace W'
 alt-y = 'workspace Y'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
@@ -134,9 +143,18 @@ alt-shift-7 = 'move-node-to-workspace 7'
 alt-shift-8 = 'move-node-to-workspace 8'
 alt-shift-9 = 'move-node-to-workspace 9'
 alt-shift-b = 'move-node-to-workspace B'
+alt-shift-d = 'move-node-to-workspace D'
+alt-shift-f = 'move-node-to-workspace F'
+alt-shift-g = 'move-node-to-workspace G'
+alt-shift-i = 'move-node-to-workspace I'
 alt-shift-m = 'move-node-to-workspace M'
+alt-shift-p = 'move-node-to-workspace P'
+alt-shift-q = 'move-node-to-workspace Q'
+alt-shift-r = 'move-node-to-workspace R'
 alt-shift-t = 'move-node-to-workspace T'
-alt-shift-y = 'workspace Y'
+alt-shift-v = 'move-node-to-workspace V'
+alt-shift-w = 'move-node-to-workspace W'
+alt-shift-y = 'move-node-to-workspace Y'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
