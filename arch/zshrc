@@ -108,4 +108,4 @@ alias cd="z"
 
 export PATH=$PATH:$HOME/.cargo/env
 export PATH=~/bin:$PATH
-setxkbmap -option caps:escape
+# setxkbmap -option caps:escape
