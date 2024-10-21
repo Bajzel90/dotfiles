@@ -46,10 +46,10 @@ map("n", "<leader>tl", function()
 	vim.print("Toggling signcolumn")
 	vim.o.signcolumn = vim.o.signcolumn == "yes" and "no" or "yes"
 end, { desc = "Toggle signcolumn" })
-map("n", "<leader>tv", function()
-	vim.print("Toggling virtualedit")
-	vim.o.virtualedit = vim.o.virtualedit == "all" and "block" or "all"
-end, { desc = "Toggle virtualedit" })
+map("n", "<leader>ti", function()
+	vim.print("Toggling inline hints")
+	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end, { desc = "Toggle inline hints" })
 map("n", "<leader>ts", function()
 	vim.print("Toggling spell")
 	vim.o.spell = vim.o.spell == false and true or false

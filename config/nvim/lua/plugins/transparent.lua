@@ -1,1 +1,2 @@
-return { "xiyaowong/transparent.nvim" }
+return {}
+-- return { "xiyaowong/transparent.nvim" }

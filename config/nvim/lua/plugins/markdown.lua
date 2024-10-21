@@ -12,9 +12,6 @@ return {
 		opts = {
 			code = {
 				width = "block",
-				right_pad = "5",
-				-- border = "thin",
-				style = "language",
 			},
 			heading = {
 				sign = true,

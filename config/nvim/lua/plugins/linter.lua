@@ -7,12 +7,13 @@ return {
 	config = function()
 		local lint = require("lint")
 
-		local markdownlint = lint.linters.markdownlint
-		markdownlint.args = { "--config", "~/dotfiles/config/nvim/markdownlint.yaml" }
+		-- local markdownlint = lint.linters.markdownlint
+		-- markdownlint.args = { "--config", "~/dotfiles/config/nvim/.markdownlint.yaml" }
 
 		lint.linters_by_ft = {
 			markdown = { "markdownlint" },
 			sh = { "shellcheck" },
+			json = { "jsonlint" },
 			-- python = { "mypy" },
 		}
 
