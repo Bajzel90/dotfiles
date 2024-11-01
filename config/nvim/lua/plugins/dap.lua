@@ -1,17 +1,25 @@
 return {
 	"mfussenegger/nvim-dap",
-	dependencies = { "nvim-neotest/nvim-nio", "rcarriga/nvim-dap-ui", "mfussenegger/nvim-dap-python" },
+	dependencies = {
+		"nvim-neotest/nvim-nio",
+		"rcarriga/nvim-dap-ui",
+		"mfussenegger/nvim-dap-python",
+		"mfussenegger/nvim-dap",
+		"leoluz/nvim-dap-go",
+		"theHamsta/nvim-dap-virtual-text",
+	},
 	config = function()
 		local dap = require("dap")
 		local dapui = require("dapui")
-
-		-- local path = require("mason-registry").get_package("debugpy"):get_install_path()
-		-- print(path)
-		require("dap-python").setup(
-			-- path .. "/venv/bin/python"
-		)
+		local dapgo = require("dap-go")
+		local dap_python = require("dap-python")
+		local dap_virtual_text = require("nvim-dap-virtual-text")
 
 		dapui.setup()
+		dap_virtual_text.setup()
+
+		dapgo.setup()
+		dap_python.setup()
 
 		dap.listeners.before.attach.dapui_config = function()
 			dapui.open()
@@ -26,6 +34,9 @@ return {
 			dapui.close()
 		end
 		-- Keymaps
+		vim.keymap.set("n", "<leader>dq", function()
+			dapui.close()
+		end)
 
 		vim.keymap.set("n", "<leader>dc", function()
 			dap.continue()
