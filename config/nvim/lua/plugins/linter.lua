@@ -7,8 +7,8 @@ return {
 	config = function()
 		local lint = require("lint")
 
-		-- local markdownlint = lint.linters.markdownlint
-		-- markdownlint.args = { "--config", "~/dotfiles/config/nvim/.markdownlint.yaml" }
+		local markdownlint = lint.linters.markdownlint
+		markdownlint.args = { "--config", "/Users/pu54xk/dotfiles/config/nvim/.markdownlint.yaml" }
 
 		lint.linters_by_ft = {
 			markdown = { "markdownlint" },
@@ -27,7 +27,7 @@ return {
 		})
 
 		vim.keymap.set("n", "<leader>ll", function()
-			lint.try_lint()
-		end, { desc = "Trigger linting" })
+			lint.clear()
+		end, { desc = "Clear linter" })
 	end,
 }

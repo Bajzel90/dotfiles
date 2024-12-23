@@ -51,6 +51,20 @@ return {
 			return suffix
 		end,
 
+		-- Optional, by default when you use `:ObsidianFollowLink` on a link to an external
+		-- URL it will be ignored but you can customize this behavior here.
+		---@param url string
+		follow_url_func = function(url)
+			vim.ui.open(url) -- need Neovim 0.10.0+
+		end,
+
+		-- Optional, by default when you use `:ObsidianFollowLink` on a link to an image
+		-- file it will be ignored but you can customize this behavior here.
+		---@param img string
+		follow_img_func = function(img)
+			vim.ui.open(img) -- need Neovim 0.10.0+
+		end,
+
 		markdown_link_func = function(opts)
 			return string.format("[%s](%s)", opts.label, opts.path)
 		end,

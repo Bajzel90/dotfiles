@@ -27,7 +27,8 @@ return {
 			vim.keymap.set("n", "<leader><leader>", builtin.find_files, { desc = "Find Files" })
 			vim.keymap.set("n", "<leader>/", builtin.live_grep, { desc = "Find in File (grep)" })
 			vim.keymap.set("n", "<leader>.", builtin.oldfiles, { desc = "Find recent open" })
-			vim.keymap.set("n", "<leader>bf", builtin.buffers, { desc = "Find Buffer" })
+			vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find Buffer" })
+			vim.keymap.set("n", "<leader>ff", builtin.lsp_document_symbols, { desc = "Find LSP doc symbols" })
 			vim.keymap.set("n", "<leader>w", builtin.grep_string, { desc = "Find under cursor" })
 		end,
 	},

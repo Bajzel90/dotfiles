@@ -1,25 +1,3 @@
-function MarkdownToDoc()
-	local filename = vim.fn.expand("%")
-	local docx_filename = string.gsub(filename, "%.md$", ".docx")
-	os.execute("pandoc -t latex" .. filename .. " | pandoc -f latex --data-dir=docs/rendering/ -o " .. docx_filename)
-end
-
-function MarkdownToPdf()
-	local filename = vim.fn.expand("%")
-	local output_filename = filename:gsub("%.md$", ".pdf")
-	local pandoc_command = string.format(
-		'pandoc %s -o %s -V geometry:"top=2cm, bottom=1.5cm, left=2cm, right=2cm" -V mainfont:"ING Me" -V fontsize=10pt --toc --standalone -H ~/dotfiles/.head.tex',
-		filename,
-		output_filename
-	)
-	local result = vim.api.nvim_call_function("system", { pandoc_command })
-	if result == 0 then
-		print("Plik PDF został utworzony: " .. output_filename)
-	else
-		print("Wystąpił błąd podczas konwersji Markdown na PDF.")
-	end
-end
-
 vim.api.nvim_create_user_command("FormatSql", function()
 	-- Check if the current buffer is a SQL file
 	if vim.bo.filetype == "sql" then
@@ -53,4 +31,14 @@ vim.api.nvim_create_user_command("FormatSelectedSql", format_selected_sql, { ran
 -- Map the shortcut key
 vim.api.nvim_set_keymap("v", "<leader>fs", ":FormatSelectedSql<CR>", { noremap = true, silent = true })
 
-vim.api.nvim_create_user_command("MarkdownToDoc", MarkdownToDoc, {})
+local function open_image_from_markdown()
+	local line = vim.fn.getline(".")
+	local match = line:match("!%[.*%]%((%S+)%)")
+	if match then
+		os.execute("open " .. "." .. match)
+	else
+		print("No valid image syntax found.")
+	end
+end
+
+vim.api.nvim_create_user_command("OpenImage", open_image_from_markdown, {})

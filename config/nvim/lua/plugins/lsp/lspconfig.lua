@@ -109,7 +109,7 @@ return {
 		lspconfig.ts_ls.setup({
 			capabilities = capabilities,
 		})
-		lspconfig.ruff_lsp.setup({
+		lspconfig.ruff.setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 			init_options = {

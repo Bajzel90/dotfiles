@@ -1,5 +1,45 @@
 return {
 	{
+		"SCJangra/table-nvim",
+		ft = "markdown",
+		opts = {
+			mappings = { -- next and prev work in Normal and Insert mode. All other mappings work in Normal mode.
+				next = "<TAB>", -- Go to next cell.
+				prev = "<S-TAB>", -- Go to previous cell.
+				-- insert_row_up = "<A-k>", -- Insert a row above the current row.
+				-- insert_row_down = "<A-j>", -- Insert a row below the current row.
+				-- move_row_up = "<A-S-k>", -- Move the current row up.
+				-- move_row_down = "<A-S-j>", -- Move the current row down.
+				-- insert_column_left = "<A-h>", -- Insert a column to the left of current column.
+				-- insert_column_right = "<A-l>", -- Insert a column to the right of current column.
+				-- move_column_left = "<A-S-h>", -- Move the current column to the left.
+				-- move_column_right = "<A-S-l>", -- Move the current column to the right.
+				-- insert_table = "<A-t>", -- Insert a new table.
+				-- insert_table_alt = "<A-S-t>", -- Insert a new table that is not surrounded by pipes.
+				-- delete_column = "<A-d>", -- Delete the column under cursor.
+			},
+		},
+	},
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		build = "cd app && yarn install",
+		init = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		keys = {
+			{
+				"<leader>mp",
+				ft = "markdown",
+				"<cmd>MarkdownPreviewToggle<cr>",
+				desc = "Markdown Preview",
+			},
+		},
+		config = function()
+			vim.cmd([[do FileType]])
+		end,
+	},
+	{
 		"tadmccorkle/markdown.nvim",
 		ft = "markdown", -- or 'event = "VeryLazy"'
 		opts = {},
@@ -48,5 +88,28 @@ return {
 				below = "▀",
 			},
 		},
+	},
+	{
+		"Zeioth/markmap.nvim",
+		build = "yarn global add markmap-cli",
+		cmd = { "MarkmapOpen", "MarkmapSave", "MarkmapWatch", "MarkmapWatchStop" },
+		opts = {
+			html_output = "/tmp/markmap.html", -- (default) Setting a empty string "" here means: [Current buffer path].html
+			hide_toolbar = false, -- (default)
+			grace_period = 3600000, -- (default) Stops markmap watch after 60 minutes. Set it to 0 to disable the grace_period.
+		},
+		config = function(_, opts)
+			require("markmap").setup(opts)
+		end,
+	},
+	{
+		"Nedra1998/nvim-mdlink",
+		opts = {},
+		config = function()
+			local mdlink = require("nvim-mdlink")
+
+			vim.api.nvim_create_user_command("FollowMarkdownLink", mdlink.follow, {})
+			vim.api.nvim_set_keymap("n", "<leader>ml", ":FollowMarkdownLink<CR>", { noremap = true })
+		end,
 	},
 }

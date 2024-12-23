@@ -52,7 +52,7 @@ return {
 				["<C-Space>"] = cmp.mapping.complete(),
 				["<C-e>"] = cmp.mapping.close(),
 				["<C-y>"] = cmp.mapping.confirm({
-					behavior = cmp.ConfirmBehavior.Insert,
+					-- behavior = cmp.ConfirmBehavior.Insert,
 					select = true,
 				}),
 			},
@@ -80,5 +80,17 @@ return {
 				ghost_text = true,
 			},
 		})
+
+		vim.keymap.set({ "i" }, "<C-k>", function()
+			if luasnip.expand_or_jumpable() then
+				luasnip.expand_or_jump()
+			end
+		end, { silent = true })
+
+		vim.keymap.set({ "i", "s" }, "<C-j>", function()
+			if luasnip.jumpable() then
+				luasnip.jump(-1)
+			end
+		end, { silent = true })
 	end,
 }
