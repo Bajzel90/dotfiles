@@ -27,11 +27,11 @@ opt.sts = 4
 opt.sw = 4
 opt.tabstop = 4 -- Number of spaces tabs count for
 opt.termguicolors = true -- True color support
-opt.timeoutlen = 150
+opt.timeoutlen = 200
 opt.undofile = true
 opt.updatetime = 250
 opt.wrap = true
 
 vim.diagnostic.config({
-	float = { border = "rounded" },
+  float = { border = "rounded" },
 })
