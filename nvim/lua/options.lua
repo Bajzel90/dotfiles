@@ -11,7 +11,7 @@ opt.ignorecase = true
 opt.incsearch = true
 opt.linebreak = true
 opt.list = false
-opt.listchars = { tab = "⇠-⇢", trail = "·", nbsp = "␣", eol = "⇣" }
+opt.listchars = { tab = ">>", trail = "·", nbsp = "␣" }
 opt.number = true
 opt.relativenumber = true
 opt.scrolloff = 0
@@ -33,5 +33,5 @@ opt.updatetime = 250
 opt.wrap = true
 
 vim.diagnostic.config({
-  float = { border = "rounded" },
+	float = { border = "rounded" },
 })

@@ -22,4 +22,10 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({ { import = "plugins" }, { import = "plugins.lsp" } })
 require("autocommands")
 require("functions")
-require("commands")
+require("workflows")
+
+vim.lsp.config("*", {
+	capabilities = require("blink.cmp").get_lsp_capabilities(),
+})
+
+vim.lsp.enable("lua_ls")

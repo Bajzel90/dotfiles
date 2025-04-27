@@ -4,11 +4,7 @@ map("i", "jj", "<esc>")
 map("i", "jk", "<esc>")
 
 map("n", "<Esc>", "<cmd>nohlsearch<CR>")
--- map("n", "<C-u>", "<C-u>zz")
--- map("n", "<C-d>", "<C-d>zz")
--- map("n", "G", "Gzz")
 
-map("v", "<leader>mc", "<Cmd>MDTaskToggle<CR>", { desc = "Tasks" })
 map("n", "<leader>mm", "<Cmd>MDToc<CR>", { desc = "Markdown ToC" })
 
 -- diagnostics
@@ -21,16 +17,14 @@ map("n", "<space>q", vim.diagnostic.setloclist)
 map("v", "J", ":m '>+1<CR>gv=gv")
 map("v", "K", ":m '<-2<CR>gv=gv")
 
--- map("n", "j", "gj")
--- map("n", "k", "gk")
--- map("n", "n", "nzz")
--- map("n", "N", "Nzz")
+map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "[C]ode [A]ction" })
+
+map("n", "j", "gj")
+map("n", "k", "gk")
 
 -- Buffers
 map("n", "<S-h>", "<Cmd>bp<CR>", { desc = "Buffer Previous" })
 map("n", "<S-l>", "<cmd>bn<CR>", { desc = "Buffer Next" })
-map("n", "<leader>bD", "<cmd>%bd|e#|bd#<cr>", { desc = "Close all but the current buffer" })
-map("n", "<leader>bd", "<cmd>bd<cr>", { desc = "Close buffer" })
 
 -- toggles
 map("n", "<leader>tn", function()

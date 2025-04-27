@@ -7,7 +7,6 @@ return {
 	},
 	config = function()
 		local lspconfig = require("lspconfig")
-		-- local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 		local on_attach = function(_, bufnr)
 			local map = function(keys, func, desc)
@@ -23,9 +22,7 @@ return {
 
 			map("gr", buildin.lsp_references, "[G]oto [R]eferences")
 			map("gd", buildin.lsp_definitions, "[G]oto [D]efinition")
-			map("gd", buildin.lsp_definitions, "[G]oto [D]efinition")
 			map("gI", buildin.lsp_implementations, "[G]oto [I]mplementation")
-			map("<leader>D", buildin.lsp_type_definitions, "Type [D]efinition")
 			map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
 			map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 			map("K", vim.lsp.buf.hover, "Hover Documentation")
@@ -34,36 +31,7 @@ return {
 
 		local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-		lspconfig.marksman.setup({ capabilities = capabilities, on_attach = on_attach })
-
-		lspconfig.lua_ls.setup({
-			on_init = function(client)
-				local path = client.workspace_folders[1].name
-				if vim.loop.fs_stat(path .. "/.luarc.json") or vim.loop.fs_stat(path .. "/.luarc.jsonc") then
-					return
-				end
-
-				client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
-					runtime = {
-						-- Tell the language server which version of Lua you're using
-						-- (most likely LuaJIT in the case of Neovim)
-						version = "LuaJIT",
-					},
-					-- Make the server aware of Neovim runtime files
-					workspace = {
-						checkThirdParty = false,
-						library = {
-							vim.env.VIMRUNTIME,
-						},
-					},
-				})
-			end,
-			settings = {
-				Lua = {},
-			},
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
+		lspconfig.marksman.setup({ capabilities = capabilities })
 
 		require("lspconfig").pyright.setup({
 			settings = {
@@ -86,6 +54,22 @@ return {
 		lspconfig.gopls.setup({ capabilities = capabilities, on_attach = on_attach })
 
 		local util = require("lspconfig.util")
+
+		lspconfig.azure_pipelines_ls.setup({
+			capabilities = capabilities,
+			-- settings = {
+			-- 	yaml = {
+			-- 		schemas = {
+			-- 			["https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json"] = {
+			-- 				"/azure-pipeline*.y*l",
+			-- 				"/*.azure*",
+			-- 				"Azure-Pipelines/**/*.y*l",
+			-- 				"Pipelines/*.y*l",
+			-- 			},
+			-- 		},
+			-- 	},
+			-- },
+		})
 
 		lspconfig.rust_analyzer.setup({
 			capabilities = capabilities,
@@ -127,35 +111,12 @@ return {
 			root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
 		})
 
-		-- lspconfig.azure_pipelines_ls.setup({
-		-- 	capabilities = capabilities,
-		-- 	single_file_support = true,
-		-- 	settings = {
-		-- 		yaml = {
-		-- 			schemas = {
-		-- 				["https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json"] = {
-		-- 					"/azure-pipeline*.y*l",
-		-- 					"/*.azure*",
-		-- 					"Azure-Pipelines/**/*.y*l",
-		-- 					"Pipelines/*.y*l",
-		-- 				},
-		-- 			},
-		-- 		},
-		-- 	},
-		-- })
-
-		lspconfig.omnisharp_mono.setup({
+		lspconfig.csharp_ls.setup({
+			handlers = { ["textDocument/publishDiagnostics"] = function(...) end },
 			capabilities = capabilities,
-			on_attach = function(_, bufnr)
-				-- Enable completion triggered by <c-x><c-o>
-				vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-			end,
-			enable_import_completion = true,
-			organize_imports_on_format = true,
-			enable_roslyn_analyzers = true,
-			root_dir = function()
-				return vim.loop.cwd() -- current working directory
-			end,
+		})
+		lspconfig.jdtls.setup({
+			capabilities = capabilities,
 		})
 	end,
 }

@@ -11,6 +11,7 @@ return {
 	},
 	{
 		"iamcco/markdown-preview.nvim",
+		lazy = true,
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 		build = function()
 			require("lazy").load({ plugins = { "markdown-preview.nvim" } })
@@ -35,6 +36,7 @@ return {
 	},
 	{
 		"MeanderingProgrammer/markdown.nvim",
+		ft = "markdown", -- or 'event = "VeryLazy"'
 		name = "render-markdown", -- Only needed if you have another plugin named markdown.nvim
 		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
 		main = "render-markdown",
@@ -47,11 +49,13 @@ return {
 				sign = false,
 				icons = {},
 			},
-			ft = { "markdown", "norg", "rmd", "org" },
+			bullet = { enabled = true, icons = { "", "" } },
+			render_modes = { "n", "c", "t" },
 		},
 	},
 	{
 		"Zeioth/markmap.nvim",
+		lazy = true,
 		build = "yarn global add markmap-cli",
 		cmd = { "MarkmapOpen", "MarkmapSave", "MarkmapWatch", "MarkmapWatchStop" },
 		opts = {
@@ -62,18 +66,5 @@ return {
 		config = function(_, opts)
 			require("markmap").setup(opts)
 		end,
-	},
-	{
-		"Nedra1998/nvim-mdlink",
-		opts = {},
-		config = function()
-			local mdlink = require("nvim-mdlink")
-
-			vim.api.nvim_create_user_command("FollowMarkdownLink", mdlink.follow, {})
-			vim.api.nvim_set_keymap("n", "<leader>ml", ":FollowMarkdownLink<CR>", { noremap = true })
-		end,
-	},
-	{
-		"jghauser/follow-md-links.nvim",
 	},
 }
