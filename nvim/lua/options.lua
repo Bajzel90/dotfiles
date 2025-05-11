@@ -35,3 +35,17 @@ opt.wrap = true
 vim.diagnostic.config({
 	float = { border = "rounded" },
 })
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = "*",
+	callback = function()
+		vim.api.nvim_set_hl(0, "LineNr", { fg = "#909090", bg = "none" })
+		vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#ffffff", bg = "none" })
+		vim.api.nvim_set_hl(0, "SignColumn", { fg = "#909090", bg = "none" })
+	end,
+})
+
+vim.keymap.set("n", "tv", function()
+	local new_config = not vim.diagnostic.config().virtual_lines
+	vim.diagnostic.config({ virtual_lines = new_config })
+end, { desc = "Toggle diagnostic virtual_lines" })

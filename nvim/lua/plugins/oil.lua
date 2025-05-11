@@ -3,9 +3,7 @@ return {
 	config = function()
 		local oil = require("oil")
 		local detail = false
-
 		oil.setup({
-
 			win_options = {
 				wrap = true,
 			},
@@ -20,9 +18,9 @@ return {
 					opts = { vertical = true },
 					desc = "Open the entry in a vertical split",
 				},
-				["<C-t>"] = { "actions.select", opts = { tab = true }, desc = "Open the entry in new tab" },
+				["l"] = { "actions.select" },
+				["h"] = { "actions.parent" },
 				["<C-p>"] = "actions.preview",
-				["<C-c>"] = "actions.close",
 				["q"] = "actions.close",
 				["<C-r>"] = "actions.refresh",
 				["-"] = "actions.parent",

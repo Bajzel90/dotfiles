@@ -17,9 +17,9 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.opt_local.shiftwidth = 2
 		vim.opt_local.expandtab = true
 
-		vim.o.textwidth = 88
-		vim.o.formatoptions = vim.o.formatoptions .. "t"
-		vim.wo.linebreak = true
+		vim.opt_local.textwidth = 80
+		vim.opt_local.formatoptions = vim.o.formatoptions .. "t"
+		vim.opt_local.linebreak = true
 	end,
 })
 

@@ -14,23 +14,14 @@ return {
 			local themes = require("telescope.themes")
 
 			telescope.setup({
-				defaults = {
-					layout_config = {
-						preview_width = 0.6,
-					},
-				},
+				-- defaults = {
+				-- 	layout_config = {
+				-- 		preview_width = 0.6,
+				-- 	},
+				-- },
 				extensions = {
 					["ui-select"] = {
 						themes.get_dropdown({}),
-					},
-					undo = {
-						use_delta = false,
-						saved_only = true,
-						vim_diff_opts = { result_type = "indices", ctxlen = 9999 },
-						layout_config = {
-							preview_width = 0.8,
-						},
-						compare_to_current = true,
 					},
 				},
 			})

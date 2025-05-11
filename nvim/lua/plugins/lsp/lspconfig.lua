@@ -53,46 +53,12 @@ return {
 
 		lspconfig.gopls.setup({ capabilities = capabilities, on_attach = on_attach })
 
-		local util = require("lspconfig.util")
-
-		lspconfig.azure_pipelines_ls.setup({
-			capabilities = capabilities,
-			-- settings = {
-			-- 	yaml = {
-			-- 		schemas = {
-			-- 			["https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json"] = {
-			-- 				"/azure-pipeline*.y*l",
-			-- 				"/*.azure*",
-			-- 				"Azure-Pipelines/**/*.y*l",
-			-- 				"Pipelines/*.y*l",
-			-- 			},
-			-- 		},
-			-- 	},
-			-- },
-		})
-
-		lspconfig.rust_analyzer.setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			filetytpes = { "rust" },
-			root_dir = util.root_pattern("Cargo.toml"),
-			settings = {
-				["rust_analyzer"] = {
-					cargo = {
-						allFeatures = true,
-					},
-				},
-			},
-		})
-
 		lspconfig.svelte.setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 			filetytpes = { "svelte", "html" },
 		})
-		lspconfig.ts_ls.setup({
-			capabilities = capabilities,
-		})
+
 		lspconfig.ruff.setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
@@ -103,6 +69,7 @@ return {
 				},
 			},
 		})
+
 		lspconfig.bashls.setup({ capabilities = capabilities, on_attach = on_attach })
 
 		lspconfig.denols.setup({
