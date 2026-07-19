@@ -1,0 +1,12 @@
+[providers]
+default = [
+  "desktopapplications",
+  "clipboard",
+  "runner",
+  "calc",
+  "websearch",
+]
+empty = ["desktopapplications"]
+
+[providers.clipboard]
+time_format = "relative"
