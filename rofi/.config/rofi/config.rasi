@@ -167,4 +167,5 @@ configuration {
   }
 }
 
-@theme "/home/adam/.local/share/rofi/themes/spotlight-dark.rasi"
+@theme "gruvbox-dark"
+// @theme "/home/adam/.local/share/rofi/themes/spotlight-dark.rasi"

@@ -41,7 +41,7 @@ miniclue.setup({
 	},
 	window = {
 		-- Show window immediately
-		delay = 500,
+		delay = 200,
 
 		config = {
 			width = "auto",
@@ -58,5 +58,8 @@ miniclue.setup({
 		miniclue.gen_clues.registers(),
 		miniclue.gen_clues.windows(),
 		miniclue.gen_clues.z(),
+		{ mode = "n", keys = "<leader>a", desc = "+AI / OpenCode" },
+		{ mode = "x", keys = "<leader>a", desc = "+AI / OpenCode" },
+		{ mode = "n", keys = "<leader>g", desc = "+Git / Diff" },
 	},
 })

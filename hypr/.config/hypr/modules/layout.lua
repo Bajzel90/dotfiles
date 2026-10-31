@@ -1,4 +1,4 @@
-hl.config({ general = { layout = "master" } })
+hl.config({ general = { layout = "scrolling" } })
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
 hl.config({ dwindle = { preserve_split = true } })

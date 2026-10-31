@@ -15,3 +15,8 @@ PS1='[\u@\h \W]\$ '
 . "$HOME/.local/bin/env"
 
 alias ghypr='cd ~/.config/hypr/'
+
+. "$HOME/.cargo/env"
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"

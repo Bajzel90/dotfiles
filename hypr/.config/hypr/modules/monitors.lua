@@ -1,7 +1,7 @@
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 local monitor_external = {
 	output = "",
-	mode = "preferred",
+	mode = "2560x1080@60",
 	position = "auto-center-up",
 	scale = 1,
 }
@@ -31,9 +31,6 @@ hl.bind("switch:on:Lid Switch", function()
 
 	if has_external then
 		hl.monitor({ output = "eDP-1", disabled = true })
-		hl.timer(function()
-			hl.exec_cmd("pkill waybar; waybar")
-		end, { timeout = 500, type = "oneshot" })
 	else
 		hl.exec_cmd("systemctl suspend")
 	end
@@ -42,6 +39,6 @@ end, { locked = true })
 -- Lid opened: przeładuj konfigurację żeby przywrócić monitor (disabled = true nie da się cofnąć bez reload)
 hl.bind("switch:off:Lid Switch", function()
 	hl.timer(function()
-		hl.exec_cmd("hyprctl reload && sleep 0.5 && pkill waybar; waybar &")
+		hl.exec_cmd("hyprctl reload")
 	end, { timeout = 1000, type = "oneshot" })
 end, { locked = true })

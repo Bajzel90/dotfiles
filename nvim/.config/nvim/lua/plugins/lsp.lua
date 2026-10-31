@@ -55,6 +55,17 @@ vim.api.nvim_create_autocmd("User", {
 	end,
 })
 
+vim.lsp.config("pyright", {
+	settings = {
+		python = {
+			analysis = {
+				autoSearchPaths = true,
+				useLibraryCodeForTypes = true,
+			},
+		},
+	},
+})
+
 vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {

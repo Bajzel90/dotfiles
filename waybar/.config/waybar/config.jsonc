@@ -1,14 +1,8 @@
 {
     "layer": "top",
-    "modules-left": ["ext/workspaces", "tray" ],
+    "modules-left": ["sway/workspaces" ],
     "modules-center": ["clock"],
-    "modules-right": ["hyprland/submap","group/volume", "battery", "bluetooth", "network", "cpu", "memory"],
-    "hyprland/window": {
-        "max-length": 50
-    },
-    "ext/workspaces": {
-        "on-click": "activate"
-    },
+    "modules-right": ["tray", "group/volume", "battery", "bluetooth", "network", "cpu", "memory"],
     "tray": {
         "spacing": 10,
         "show-passive-items": true
@@ -25,7 +19,7 @@
     },
     "bluetooth": {
       "format": "",
-      "format-disabled": "", // an empty format will hide the module
+      "format-disabled": "",
       "format-connected": " {num_connections}",
       "tooltip-format": "{controller_alias}\t{controller_address}",
       "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
@@ -48,7 +42,7 @@
         "format": "",
         "format-wifi": "",
         "format-ethernet": "",
-        "format-disconnected": "󰤭", //An empty format will hide the module.
+        "format-disconnected": "󰤭",
         "tooltip-format": "{ifname} via {gwaddr} 󰊗",
         "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
         "tooltip-format-ethernet": "{ifname} ",

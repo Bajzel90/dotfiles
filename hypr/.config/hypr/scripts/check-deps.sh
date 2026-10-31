@@ -1,18 +1,14 @@
 #!/bin/bash
 DEPS=(
-  waybar
   snixembed # notyfikacje u używające starego XEmbed
   wireplumber
   wl-clipboard
   ghostty
   nautilus
   zen-browser
-  walker elephant elephant-providerlist elephant-desktopapplications elephant-files elephant-runner elephant-clipboard
   brightnessctl
   playerctl
-  hyprpaper
   hyprshutdown
-  mako
   btop
   htop
   jolt

@@ -4,8 +4,7 @@ local bind = utils.bind
 local terminal = "ghostty"
 local file_manager = "nautilus"
 local browser = "zen-browser"
-local launcher = "walker --provider desktopapplications"
-local runner = "walker --provider runner"
+local launcher = "noctalia msg panel-toggle launcher"
 local mod = "SUPER" -- Sets "Windows" key as main modifier
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
@@ -14,7 +13,7 @@ bind({ mod, "B" }, hl.dsp.exec_cmd(browser))
 bind({ mod, "W" }, hl.dsp.window.close())
 bind({ mod, "E" }, hl.dsp.exec_cmd(file_manager))
 bind({ mod, "space" }, hl.dsp.exec_cmd(launcher))
-bind({ mod, "SHIFT", "space" }, hl.dsp.exec_cmd(runner))
+bind({ mod, "D" }, hl.dsp.exec_cmd("handy --toggle-transcription"))
 bind({ mod, "SHIFT", "A" }, hl.dsp.exec_cmd(browser .. " --new-window https://claude.ai/new"))
 
 bind(
@@ -23,6 +22,7 @@ bind(
 )
 
 bind({ mod, "SHIFT", "ESCAPE" }, hl.dsp.exec_cmd("hyprlock"))
+bind({ mod, "SHIFT", "M" }, hl.dsp.exec_cmd(os.getenv("HOME") .. "/.local/bin/windows"))
 
 bind({ mod, "SHIFT", "F" }, hl.dsp.window.float({ action = "toggle" }))
 bind({ mod, "F" }, hl.dsp.window.fullscreen({ mode = "maximized" }))

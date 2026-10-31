@@ -27,6 +27,9 @@ Snacks.setup({
 	indent = { enabled = true },
 	notifier = { enabled = false },
 	terminal = { enabled = true },
+	input = {
+		enabled = true,
+	},
 	picker = {
 		enabled = true,
 		sources = {

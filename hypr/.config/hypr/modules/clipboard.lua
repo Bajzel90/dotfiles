@@ -18,4 +18,4 @@ bind({ mod, "C" }, send_shortcut_once("CTRL", "Insert")) -- copy
 bind({ mod, "A" }, send_shortcut_once("CTRL", "A")) --
 bind({ mod, "V" }, send_shortcut_once("CTRL SHIFT", "V")) -- paste
 bind({ mod, "X" }, send_shortcut_once("CTRL", "X")) -- cut
-bind({ mod, "CTRL", "V" }, hl.dsp.exec_cmd("walker --provider clipboard")) -- clipboard history (Walker)
+bind({ mod, "CTRL", "V" }, hl.dsp.exec_cmd("noctalia msg panel-toggle clipboard")) -- clipboard history

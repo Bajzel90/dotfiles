@@ -1,7 +1,7 @@
 vim.pack.add({
 	{ src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
 	{ src = "https://github.com/selimacerbas/live-server.nvim" },
-	{ src = "https://github.com/selimacerbas/markdown-preview.nvim", version = "main" },
+	{ src = "https://github.com/selimacerbas/mdkite.nvim", version = "main" },
 })
 
 require("render-markdown").setup({
@@ -23,7 +23,7 @@ require("render-markdown").setup({
 	latex = { enabled = false },
 })
 
-require("markdown_preview").setup({
+require("mdkite").setup({
 	-- all optional; sane defaults shown
 	instance_mode = "multi", -- "takeover" (one tab) or "multi" (tab per instance)
 	port = 0, -- 0 = auto (8421 for takeover, OS-assigned for multi)
