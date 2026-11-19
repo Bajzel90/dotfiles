@@ -25,7 +25,7 @@ hl.config({
 		glow = {
 			enabled = true,
 			range = 20,
-			render_power = 8,
+			render_power = 4,
 			color = "rgba(33ccff99)",
 			color_inactive = "rgba(00000000)",
 		},
