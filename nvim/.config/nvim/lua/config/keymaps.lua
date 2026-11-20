@@ -41,3 +41,25 @@ vim.keymap.set("v", "<S-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
 -- Better indenting in visual mode
 vim.keymap.set("v", "<", "<gv", { desc = "Indent left and reselect" })
 vim.keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
+
+-- Yank current file path
+vim.keymap.set("n", "<leader>yf", function()
+	require("utils.editor").yank_relative_path_with_line()
+end, { desc = "Yank relative path with line number" })
+
+vim.keymap.set("n", "<leader>yp", function()
+	require("utils.editor").yank_absolute_path_with_line()
+end, { desc = "Yank absolute path with line number" })
+
+vim.keymap.set(
+	"v",
+	"<leader>yf",
+	":<C-u>lua require('utils.editor').yank_range_path_with_line()<CR>",
+	{ desc = "Yank path with line range" }
+)
+
+vim.keymap.set("v", "<leader>cc", ":<C-u>lua require('utils.editor').copy_as_codeblock()<CR>")
+
+vim.keymap.set("n", "<leader>bD", function()
+	require("utils.editor").delete_hidden_buffers()
+end, { desc = "Delete hidden buffers" })
